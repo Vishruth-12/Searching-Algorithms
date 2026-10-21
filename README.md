@@ -1,26 +1,30 @@
 # Searching Algorithms
 
-A collection of common searching algorithms implemented for practice.
+A collection of common searching algorithms implemented in C, C++, Java, and Python.
 
-## Algorithms
+## Algorithms included
 
 - Linear Search
-- Binary Search (iterative and recursive)
+- Binary Search (iterative)
 - Jump Search
 - Interpolation Search
 - Exponential Search
 
+Each language folder contains examples for all five algorithms.
+
 ## Complexity overview
 
-| Algorithm | Best | Average | Worst | Space |
+| Algorithm | Best | Average | Worst | Extra space |
 |---|---:|---:|---:|---:|
 | Linear Search | O(1) | O(n) | O(n) | O(1) |
 | Binary Search | O(1) | O(log n) | O(log n) | O(1) iterative |
 | Jump Search | O(1) | O(√n) | O(√n) | O(1) |
-| Interpolation Search | O(1) | O(log log n) | O(n) | O(1) |
+| Interpolation Search | O(1) | O(log log n)* | O(n) | O(1) |
 | Exponential Search | O(1) | O(log n) | O(log n) | O(1) iterative |
 
-Binary, jump, interpolation, and exponential search require sorted input (with interpolation search most useful when values are fairly uniformly distributed).
+*Interpolation search's average-case bound assumes values are approximately uniformly distributed.
+
+Binary, jump, interpolation, and exponential search expect sorted input. The implementations use ascending integer arrays/lists.
 
 ## Folder structure
 
@@ -29,15 +33,33 @@ Binary, jump, interpolation, and exponential search require sorted input (with i
 - `Java/` — Java implementations
 - `Python/` — Python implementations
 
-Each program is intended as an individual example with clear input/output behavior.
+## Run examples
 
-## Running examples
-
-Use the compiler/interpreter for the language. For example:
+C (Jump Search; requires a C compiler and math library):
 
 ```bash
-gcc C/linear_search.c -o linear_search
-./linear_search
+gcc C/jump_search.c -o jump_search -lm
+./jump_search
 ```
 
-Program filenames may vary by implementation.
+C++:
+
+```bash
+g++ C++/exponential_search.cpp -o exponential_search
+./exponential_search
+```
+
+Java:
+
+```bash
+javac Java/InterpolationSearch.java
+java -cp Java InterpolationSearch
+```
+
+Python:
+
+```bash
+python Python/exponential_search.py
+```
+
+The examples use fixed sample arrays and print the index when the target is found, or report that it was not found.
